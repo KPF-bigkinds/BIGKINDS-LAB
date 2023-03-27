@@ -9,10 +9,10 @@ KeyBERT는 크게 4단계를 거쳐 문서에서 key word와 phrase set를 뽑�
 
    1. 입력된 문서는 사전 훈련된 BERT 모델을 사용하여 내장된다. 이를 통해 트랜스포머에서 원하는 BERT모델을 선택할 수 있고, 문서의 의미를 고려한 고정 크기 벡터로 변환한다.
       Document-level representation (by document embeddings extracted with BERT)
-   2. 문서내 단어 출현 순서는 무시하고, 빈도수만으로 문서를 표현하는 BOW(Bag Of Words) 방식으로 문서 내 키워드와 N-그램을 추출한다.
+   2. 구문 내 단어 출현 순서는 무시하고, 빈도수만으로 문서를 표현하는 BOW(Bag Of Words) 방식으로 문서 내 키워드와 N-그램을 추출한다.
       Phrase-level representation (by word embeddings extracted for N-gram words/phrases and BERT)
    3. 가장 유사한 단어 또는 구문을 찾기 위해 두 벡터 간의 코사인 각도를 이용하며 코사인 유사도를 측정하며, 유사도가 가장 높은 키워드를 추출한다.
-      (KeyBERT는 키워드 추출 결과의 다양성을 주기 위해 두가지 방법을 포함한다. 먼저 MMR은 문서와 가장 유사한 키워드를 선택하고, 문서와 비슷하면서도 선택된 키워드와 비슷하지 않은        새로운 키워드를 반복적으로 선택하여 낮은 임계값을 선택하는 방식이다. MSS는 top_n 인수의 n을 20과 같은 값으로 설정하고, 문서에서 top_n 키워드 2개를 추출한다. 추출된 2개의        키워드 사이에 유사성을 계산하고, 가장 덜 유사한 키워드를 추출하는 방식이다.)
+      (KeyBERT는 키워드 추출 결과의 다양성을 주기 위해 두가지 방법을 포함한다. 먼저 MMR은 문서와 가장 유사한 키워드를 선택하고, 문서와 비슷하면서도 선택된 키워드와는 비슷하지 않        은 새로운 키워드를 반복적으로 선택하여 낮은 임계값을 선택하는 방식이다. 이를 통해 텍스트 요약 작업에서 중복된 결과는 최소화하고, 결과의 다양성은 극대화 할 수 있다. MSS는        top_n 인수의 n을 20과 같은 값으로 설정하고, 문서에서 top_n 키워드 2개를 추출한다. 추출된 2개의 키워드 사이에 유사성을 계산하고, 가장 덜 유사한 키워드를 추출하는 방식이          다. 이를 통해 키워드 후보 간의 유사성은 최소화하고, 문서와의 유사성은 극대화할 수 있다.)
       Use of cosine similarity to find the words/phrases that are most similar to the document
       - (optional) MMR(Maximal Marginal Relevance) or MSS(Max Sum Similarity)
    4. 전체 문서를 가장 잘 설명하는 단어 또는 구문을 추출한다.
