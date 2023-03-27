@@ -5,13 +5,18 @@
 ### KeyBERT
 
 키워드 추출(keyword extraction)은 원본 문서를 가장 잘 나타내는 중요한 용어 또는 구문을 찾아내는 작업이다.
-KeyBERT는 크게 4단계를 거쳐 문서에서 key word와 phrase set를 뽑아낸다.
+KeyBERT는 크게 4단계를 거쳐 문서에서 key word와 phrase set를 뽑아냅니다.
 
-   1. Document-level representation (by document embeddings extracted with BERT)
-   2. Phrase-level representation (by word embeddings extracted for N-gram words/phrases and BERT)
-   3. Use of cosine similarity to find the words/phrases that are most similar to the document
+   1. 입력된 문서는 사전 훈련된 BERT 모델을 사용하여 내장된다. 트랜스포머에서 원하는 BERT모델을 선택할 수 있고, 문서의 의미를 고려한 고정 크기 벡터로 변환한다.
+      Document-level representation (by document embeddings extracted with BERT)
+   2. 키워드와 N-그램은 문서내 단어 출현 순서는 무시하고, 빈도수만으로 문서를 표현하는 BOW(Bag Of Words) 방식으로 동일한 문서에서 추출된다.
+      Phrase-level representation (by word embeddings extracted for N-gram words/phrases and BERT)
+   3. 가장 유사한 단어 또는 구문을 찾기 위해 두 벡터 간의 유사도를 코사인 각도를 이용하며, 코사인 유사도가 가장 높은 키워드를 추출한다.
+      (KeyBERT는 키워드 추출 결과의 다양성을 주기 위해 두가지 방법을 포함한다. 먼저 MMR은 문서와 가장 유사한 키워드를 선택하고, 문서와 비슷하면서도 선택된 키워드와 비슷하지 않은        새로운 키워드를 반복적으로 선택하여 낮은 임계값을 선택하는 방식이다. MSS는 top_n 인수를 20과 같은 값으로 설정하고, 문서에서 top_n 키워드 2개를 추출한다. 추출된 2개의 키        워드 사이에 유사성을 계산하고, 가장 덜 유사한 키워드를 추출하는 방식이다.)
+      Use of cosine similarity to find the words/phrases that are most similar to the document
       - (optional) MMR(Maximal Marginal Relevance) or MSS(Max Sum Similarity)
-   4. Extraction of words/phrases that best describe the entire document
+   4. 전체 문서를 가장 잘 설명하는 단어 또는 구문을 추출한다.
+      Extraction of words/phrases that best describe the entire document
 
 KPF-KeyBERT는 키워드 추출을 위한 과정에서 [바른 형태소분석기](https://bareun.ai/)를 사용하여 명사를 추출하며,
 문서의 유사도를 추출하기 위해 [KPF-SBERT](https://github.com/KPFBERT/kpfSBERT)를 사용합니다. 
