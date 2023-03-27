@@ -1,11 +1,13 @@
 # KPF-BERT-CLS
 
+- 빅카인즈랩 인사이드 메뉴의 지역뉴스에서 사용된 분류 모델입니다. 분류 모델을 통해 뉴스분류 및 지역분류를 제공합니다.
+
 ## 모델 소개
 
 ### KPF-BERT-CLS
 
 
-한국언론진흥재단이 개발한 kpf-BERT 모델을 기반으로 CLS(Classification) task를 수행할 수 있는 kpf-BERT-cls 모델을 설계 및 개발한다.
+한국언론진흥재단이 개발한 kpf-BERT 모델을 기반으로 CLS(Classification) task를 수행할 수 있는 kpf-BERT-cls 모델을 설계 및 개발하였다.
 
 - 본 예제에 사용된 kpf-BERT는 [kpfBERT](https://github.com/KPFBERT/kpfbert)에 공개되어 있다.
 
