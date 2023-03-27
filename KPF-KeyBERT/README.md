@@ -7,7 +7,7 @@
 키워드 추출(keyword extraction)은 원본 문서를 가장 잘 나타내는 중요한 용어 또는 구문을 찾아내는 작업이다.
 KeyBERT는 크게 4단계를 거쳐 문서에서 key word와 phrase set를 뽑아냅니다.
 
-   1. 입력된 문서는 사전 훈련된 BERT 모델을 사용하여 내장된다. 이를 통해 트랜스포머에서 원하는 BERT모델을 선택할 수 있고, 문서의 의미를 고려한 고정 크기 벡터로 변환한다.
+   1. 입력된 문서는 사전 훈련된 BERT 모델을 사용하여 내장된다. 이를 통해 트랜스포머에서 원하는 BERT모델을 선택하고, 문서의 의미를 고려한 고정 크기 벡터로 변환할 수 있다.
       Document-level representation (by document embeddings extracted with BERT)
    2. 구문 내 단어 출현 순서는 무시하고, 빈도수만으로 문서를 표현하는 BOW(Bag Of Words) 방식으로 문서 내 키워드와 N-그램을 추출한다.
       Phrase-level representation (by word embeddings extracted for N-gram words/phrases and BERT)
