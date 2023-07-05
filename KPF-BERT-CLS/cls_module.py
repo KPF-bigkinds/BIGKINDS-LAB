@@ -46,9 +46,10 @@ region_id2label = {i: label for label, i in region_label2id.items()}
 
 # tokenizer 및 model 불러오기
 tokenizer = AutoTokenizer.from_pretrained("kpfbert")
-kpf_model1 = BertForSequenceClassification.from_pretrained("kpf-BERT-cls-L1")
-kpf_model2 = BertForSequenceClassification.from_pretrained("kpf-BERT-cls-L2")
-kpf_model3 = BertForSequenceClassification.from_pretrained("kpf-BERT-cls-L3")
+# huggingface 분류모델 불러오기
+kpf_model1 = BertForSequenceClassification.from_pretrained("KPF/KPF-bert-cls1")
+kpf_model2 = BertForSequenceClassification.from_pretrained("KPF/KPF-bert-cls2")
+kpf_model3 = BertForSequenceClassification.from_pretrained("KPF/KPF-bert-cls3")
 
 kpf_model1.to("cuda")
 kpf_model2.to("cuda")

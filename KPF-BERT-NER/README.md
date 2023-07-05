@@ -55,6 +55,8 @@ B는 개체명이 시작되는 부분, I는 개체명의 내부 부분, O는 개
 ---
 ## Usage
 
+- 생성된 모델을 통한 predict 사용법은 4.Predictions 항목 참고
+
 1. BERT
 
     kpfBERT 모델을 다운받아 아래의 디렉토리에 넣어주고 fine-tuning을 진행한다.
@@ -95,7 +97,7 @@ B는 개체명이 시작되는 부분, I는 개체명의 내부 부분, O는 개
     ```
     - `kpf-bert-ner` : KPF-BERT-NER 모델의 저장 위치
     - `train.py` : 학습 관련 코드. 
-    - 실행에 필요한 파일 : label.py, config.py, Dataset.py, kpfbert 폴더가 있어야함.
+    - 실행에 필요한 파일 : label.py, config.py, Dataset.py, kpfbert 모델 폴더가 있어야함.
     - input : dataset, model name
     - output : trained model
    
@@ -108,6 +110,12 @@ B는 개체명이 시작되는 부분, I는 개체명의 내부 부분, O는 개
 
    `ner_module.py`의 `ner_predict(text)`를 사용하여 `text`에 기사 전문을 넣어 출력값을 `word`, `label`, `desc` json의 list 형태로 추출할 수 있다.
     
+   ```
+   # huggingface 개체명 인식 모델 불러오기
+   model = BertForTokenClassification.from_pretrained("KPF/KPF-bert-ner")
+   ```
+   위 코드에서 모델은 huggingface에 만들어진 모델을 사용하여 예측합니다.
+
     예시)
     
     입력문장

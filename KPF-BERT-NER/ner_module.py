@@ -28,8 +28,10 @@ os.environ["CUDA_VISIBLE_DEVICES"]="0"
 """
 ###############################################################################################################
 
-model = BertForTokenClassification.from_pretrained("kpf-bert-ner")
+# tokenizer 및 model 불러오기
 tokenizer = AutoTokenizer.from_pretrained("kpfbert")
+# huggingface 개체명 인식 모델 불러오기
+model = BertForTokenClassification.from_pretrained("KPF/KPF-bert-ner")
 
 def ner_predict(text):
     text = text.replace('\n','')

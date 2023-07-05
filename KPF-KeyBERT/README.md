@@ -50,16 +50,16 @@ MMR이란 검색 엔진 내에서 본문 검색(text retreival) 관련하여 검
 
 1. SBERT
 
-    kpfSBERT 모델을 다운받아 아래의 디렉토리에 넣어 문서 .
+    kpfSBERT 모델을 다운받아 아래의 디렉토리에 넣어 문장별로 vectorizing을 실행한다.
 
-    - `kpfSBERT` 다운받은 kpfSBERT 화일들이 위치할 곳
+    - `kpfSBERT` 다운받은 kpfSBERT 파일들이 위치할 곳
 
 
 2. Tagger
   
    바른 형태소분석기를 사용하기 위한 설정.
    
-   KPF에서 제공하는 바른 형태소분석기의 API키와 사용 접속정보는 아래와 같으며, 
+   KPF에서 제공하는 바른 형태소분석기의 API키와 사용 접속정보는 아래와 같으며, 전체 문장에서 명사를 추출하는 작업을 진행한다.
    ```
    API_KEY = "koba-M3CMSHQ-ZRBUUNI-WHTY2KI-NUYJDCY" # KPF에서 제공하는 API_KEY
    tagger = Tagger(API_KEY,'175.106.88.249',5757) # KPF에서 제공하는 바른 형태소분석기

@@ -66,7 +66,7 @@ Pre-trained BERT를 summarization task 수행을 위한 embedding layer로 활�
 
     kpfBERT 모델을 다운받아 아래의 디렉토리에 넣어주고 fine-tuning을 진행한다.
 
-    - `kpfbert-base/` kpfbert 다운받은 화일들이 위치할 곳
+    - `kpfbert-base/` kpfbert 다운받은 파일들이 위치할 곳
     - `checkpoints/best-checkpoint.ckpt` fine-tuning 후 최적의 모델이 저장되는 곳.
     - `lightning_logs/kpfBERT_Summary/version_x/` 하위에 fine-tuning 로그가 저장됨, x는 실행순서 번호
     

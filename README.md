@@ -4,6 +4,10 @@
 한국언론진흥재단과 (주)포스웨이브에서 제작한 KPF-BERT fine-tunning 모델을 제공합니다.
 해당 모델과 알고리즘은 [빅카인즈랩](lab.bigkinds.or.kr)에서 제공되는 python 분석환경에서 API로 호출하여 사용할 수 있습니다.
 
+- 뉴스분류 모델과 개체명인식 모델은 [KPF huggingface](https://huggingface.co/KPF)에 공개되어 있습니다.
+- 뉴스분류 모델은 `KPF-BERT-CLS/cls_module.py`를 통해 사용할 수 있습니다.
+- 개체명인식 모델은 `KPF-BERT-NER/ner_module.py`를 통해 사용할 수 있습니다. 
+
 ## 제공 API
 
 - 자동분류 [KPF-BERT-CLS](https://github.com/KPF-bigkinds/BIGKINDS-LAB/tree/main/KPF-BERT-CLS)
